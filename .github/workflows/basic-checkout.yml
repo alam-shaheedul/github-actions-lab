@@ -31,3 +31,23 @@ jobs:
           echo "Node version: $(node --version)"
           echo "Python version: $(python --version)"
           echo "Git version: $(git --version)"
+      
+      - name: Show date and time
+        run: date
+
+      - name: Show disk space
+        run: df -h
+
+      - name: Show memory usage
+        run: free -m
+
+      - name: Display custom message
+        env:
+          CUSTOM_MESSAGE: "Hello from GitHub Actions!"
+        run: echo "$CUSTOM_MESSAGE"
+
+      - name: Conditional step
+        if: github.event_name == 'push'
+        run: echo "This was triggered by a push event"
+
+        
